@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gali Bot</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+    background-color: #1a1a1a;
+}
+
+h1 {
+    color: #00ccff;
+}
+
+.chat-container {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 10px;
+    border: 1px solid #4d4d4d;
+    border-radius: 5px;
+    background-color: #252525;
+    background-image: linear-gradient(to right, #252525, #2d2d2d);
+}
+
+.bot {
+    background-color: #007BFF;
+    background-image: linear-gradient(to right, #007BFF, #0056b3);
+    color: #fff;
+    padding: 8px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.user {
+    background-color: #28a745;
+    background-image: linear-gradient(to right, #28a745, #1e7e34);
+    color: #fff;
+    padding: 8px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+input[type="text"] {
+    padding: 5px;
+    border: 1px solid #4d4d4d;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #1a1a1a;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: #007BFF;
+}
+
+button {
+    margin-top: 5px;
+    padding: 10px 15px;
+    background-color: #007BFF;
+    background-image: linear-gradient(to right, #007BFF, #0056b3);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Add smooth fadeIn animation for bot and user messages */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    animation: fadeIn 0.6s ease;
+}
+
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <h1 style="color: #007BFF; margin-bottom: 20px;">Gali Bot</h1>
+        <div class="bot">Hey there! Type a message.</div>
+        <input type="text" id="user-input" placeholder="Type your message...">
+        <button id="send-btn" onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        function getRandomResponse() {
+            // List of predefined slang responses
+            const slangResponses = [
+                "Chup Sala",
+                "Kotha kois nato",
+                "Ja ain theke",
+                "ai sala chup korbi?",
+                "Dhon Kete debo",
+                "R akta kotha koile tor nanire chude debo",
+                "Ato kotha kos keno bacal sala",
+                "Chutmarani Chup",
+                "Chup Magir chele",
+                "Buski chup",
+                "Motka gorom koris na",
+                "Mair khaite cas?",
+                "Ja Omegle.com a ja",
+                "Ja xnxx.com a ja",
+                "Ain the vag",
+                "Vag chadarmod",
+                "Tor ki khaiya kam nai bhai",
+                "Maf kor bhai, vagg",
+                "Tor ki gf/bf nai?",
+                "Bot ar sathe kotha koiya khub moja pas?",
+                "Mor Sala",
+                "Allah tor goponange thada falak",
+                "Disturb koros kn?",
+                "Ki lagbo?"
+            ];
+
+            // Randomly pick a response from the list
+            return slangResponses[Math.floor(Math.random() * slangResponses.length)];
+        }
+
+        function sendMessage() {
+            const userInput = document.getElementById('user-input').value;
+            if (userInput.trim() === '') {
+                return;
+            }
+
+            // Get the bot's slang response
+            const botResponse = getRandomResponse();
+
+            // Display user input and bot response in the chat container
+            const chatContainer = document.querySelector('.chat-container');
+            chatContainer.innerHTML += `<div class="user">${userInput}</div>`;
+            chatContainer.innerHTML += `<div class="bot">${botResponse}</div>`;
+
+            // Clear the input field
+            document.getElementById('user-input').value = '';
+        }
+    </script>
+</body>
+</html>
